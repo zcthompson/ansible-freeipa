@@ -24,3 +24,9 @@
     service:
       name: ipa
       state: started
+
+  - name: Ensure admin password is valid.
+    shell:
+      cmd: |
+        echo -e  "SomeADMINpassword\nSomeADMINpassword\nSomeADMINpassword" | kinit admin
+        kdestroy -A
